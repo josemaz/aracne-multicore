@@ -1,0 +1,7 @@
+t1 = read.table("tmp", header=TRUE, row.names=1)
+val = unlist(t1)
+xname = rep(names(t1), nrow(t1))
+yname = rep(row.names(t1), length(t1))
+z = data.frame(mirna = yname, gen = xname, MI = val, row.names=NULL)
+head(z)
+write.table(z, file = "LumA-mirnagen.txt", sep="\t", quote=FALSE, row.names=FALSE)
