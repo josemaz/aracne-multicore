@@ -42,7 +42,8 @@ To get a list of files with n samples randomized.
 
 ```$ cd launch
 $ mkdir Out
-$ python randsamples.py```
+$ python randsamples.py
+```
 
 We considered file input is in folder launch. If you need change this input filename you can modify the code.
 
