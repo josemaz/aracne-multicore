@@ -40,7 +40,8 @@ For run multiple *tsvs*:
 
 To get a list of files with n samples randomized.
 
-```$ cd launch
+```
+$ cd launch
 $ mkdir Out
 $ python randsamples.py
 ```
