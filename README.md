@@ -36,12 +36,12 @@ For run multiple *tsvs*:
 ``for i in $(ls *.tsv); do bash run.sh $i; done > salida &``
 
 
-## Random samples
+## 03 - Random samples
 
 To get a list of files with n samples randomized.
 
-`$ cd launch`
-`$ mkdir Out`
-`$ python randsamples.py`
+```$ cd launch
+$ mkdir Out
+$ python randsamples.py```
 
 On *Out* directory is saved all files that you can copy to launch to run ARACne.
