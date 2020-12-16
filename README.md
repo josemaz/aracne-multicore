@@ -44,4 +44,6 @@ To get a list of files with n samples randomized.
 $ mkdir Out
 $ python randsamples.py```
 
+We considered file input is in folder launch. If you need change this input filename you can modify the code.
+
 On *Out* directory is saved all files that you can copy to launch to run ARACne.
