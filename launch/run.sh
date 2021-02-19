@@ -44,10 +44,10 @@ SECONDS=0
 python ${partools}/adj2sif.py > ${nom}.sif
 echo "Creating SIF: $(echo $SECONDS/60 | bc -l) minutes."
 
-SECONDS=0
-# sort -r -k3,3 ${nom}.sif | head -10000 > ${nom}-IM-1e5.txt
-sort -r -k3,3 ${nom}.sif > ${nom}.sort
-echo "Sorting: $(echo $SECONDS/60 | bc -l) minutes."
-# for i in $(\ls *.sort); do n=${i%.*}; n=${n/matexp/IM}; head -10000 $i > "$n-10k.txt"; done
+# SECONDS=0
+# # sort -r -k3,3 ${nom}.sif | head -10000 > ${nom}-IM-1e5.txt
+# sort -r -k3,3 ${nom}.sif > ${nom}.sort
+# echo "Sorting: $(echo $SECONDS/60 | bc -l) minutes."
+# # for i in $(\ls *.sort); do n=${i%.*}; n=${n/matexp/IM}; head -10000 $i > "$n-10k.txt"; done
 
 rm -rf adj log mat.adj node.list 
