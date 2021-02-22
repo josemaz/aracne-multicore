@@ -58,3 +58,4 @@ To get only miRNA-gen interactions of a complete matrix of interactions. This sc
 $ cd launch
 $ python miRNA-gen.py
 ```
+Output of this step is a directory called ``expr-miRNA`` with *tsvs* with miRNA-gen networks.
