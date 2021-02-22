@@ -49,3 +49,12 @@ $ python randsamples.py
 We considered file input is in folder launch. If you need change this input filename you can modify the code.
 
 On *Out* directory is saved all files that you can copy to launch to run ARACne.
+
+## 04 - miRNA (Optional) 
+
+To get only miRNA-gen interactions of a complete matrix of interactions. This script consider the name of files as ``*-compete.tsv`` and resolve all ocurences.
+
+```
+$ cd launch
+$ python miRNA-gen.py
+```
