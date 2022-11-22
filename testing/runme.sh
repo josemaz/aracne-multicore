@@ -26,4 +26,4 @@ SECONDS=0
 python ${partools}/aracne-par.py $ftsv node.list $cname $(nproc) &> aracne.log 
 echo "ARACNe time: $(echo $SECONDS/60 | bc -l) minutes."
 
-#rm -rf *adj *log mat.adj node.list 
+rm -rf *adj *log mat.adj node.list 
