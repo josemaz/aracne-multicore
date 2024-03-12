@@ -1,5 +1,5 @@
 # Batch run
-# for i in $(ls *.tsv); do bash run.sh $i; done > salida &
+# for i in $(ls *.tsv); do bash runme.sh $i; done > salida &
 
 partools="$(pwd)/../parallel"
 aracnebin="../bin/aracne2"
@@ -22,14 +22,18 @@ awk '{print $1}' $ftsv > node.list
 cname=$(head -1 node.list)
 echo "Column Index Name: $cname"
 
-SECONDS=0
-python ${partools}/aracne-par.py $ftsv node.list $cname $(nproc) &> aracne.log 
-echo "ARACNe time: $(echo $SECONDS/60 | bc -l) minutes."
+# SECONDS=0
+# python ${partools}/aracne-par.py $ftsv node.list $cname $(nproc) &> aracne.log 
+# echo "ARACNe time: $(echo $SECONDS/60 | bc -l) minutes."
 
 SECONDS=0
-n=$( (cd adj; ls) | head -1 | cut -d'.' -f 2 )
-echo "Parameters to join: $nom $n node.list $cname"
-python ${partools}/joinadj.py $nom $n node.list $cname
+# n=$( (cd adj; ls) | head -1 | cut -d'.' -f 2 )
+extname=$( (cd adj; ls) | head -1)
+extname=$(echo "${extname%.*}")
+extname=$(echo "${extname##*.}")
+echo $extname
+echo "Parameters to join: $nom $extname node.list $cname"
+python ${partools}/joinadj.py $nom $extname node.list $cname
 echo "join ADJ matriz time: $(echo $SECONDS/60 | bc -l) minutes."
 
 echo "Moving adjancy matrix"
@@ -44,10 +48,10 @@ SECONDS=0
 python ${partools}/adj2sif.py > ${nom}.sif
 echo "Creating SIF: $(echo $SECONDS/60 | bc -l) minutes."
 
-# SECONDS=0
-# # sort -r -k3,3 ${nom}.sif | head -10000 > ${nom}-IM-1e5.txt
-# sort -r -k3,3 ${nom}.sif > ${nom}.sort
-# echo "Sorting: $(echo $SECONDS/60 | bc -l) minutes."
-# # for i in $(\ls *.sort); do n=${i%.*}; n=${n/matexp/IM}; head -10000 $i > "$n-10k.txt"; done
+SECONDS=0
+# sort -r -k3,3 ${nom}.sif | head -10000 > ${nom}-IM-1e5.txt
+sort -r -k3,3 ${nom}.sif > ${nom}.sort
+echo "Sorting: $(echo $SECONDS/60 | bc -l) minutes."
+# for i in $(\ls *.sort); do n=${i%.*}; n=${n/matexp/IM}; head -10000 $i > "$n-10k.txt"; done
 
-rm -rf *adj *log mat.adj node.list
+# rm -rf *adj *log mat.adj node.list
