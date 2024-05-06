@@ -22,9 +22,9 @@ awk '{print $1}' $ftsv > node.list
 cname=$(head -1 node.list)
 echo "Column Index Name: $cname"
 
-# SECONDS=0
-# python ${partools}/aracne-par.py $ftsv node.list $cname $(nproc) &> aracne.log 
-# echo "ARACNe time: $(echo $SECONDS/60 | bc -l) minutes."
+SECONDS=0
+python ${partools}/aracne-par.py $ftsv node.list $cname $(nproc) &> aracne.log 
+echo "ARACNe time: $(echo $SECONDS/60 | bc -l) minutes."
 
 SECONDS=0
 # n=$( (cd adj; ls) | head -1 | cut -d'.' -f 2 )
